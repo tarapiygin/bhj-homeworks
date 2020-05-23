@@ -9,26 +9,26 @@ function clickHandler(event) {
     event.currentTarget.closest('.modal_active').classList.remove('modal_active');
 
 };
-function popUpmain() {
+function popUpMain() {
     const popUp = document.getElementById('modal_main');
-    const OffElements = Array.from(popUp.getElementsByClassName('modal__close'));
-    const SuccessElements = Array.from(popUp.getElementsByClassName('show-success'));
-    OffElements.forEach(element => {
+    const offElements = Array.from(popUp.getElementsByClassName('modal__close'));
+    const successElements = Array.from(popUp.getElementsByClassName('show-success'));
+    offElements.forEach(element => {
         element.onclick = clickHandler;
     });
-    SuccessElements.forEach(element => {
+    successElements.forEach(element => {
         element.onclick = clickHandler;
     });
     popUpOn(popUp);
 };
 function popUpSuccess() {
     const popUp = document.getElementById('modal_success');
-    const OffElements = Array.from(popUp.getElementsByClassName('modal__close'));
-    const SuccessElements = Array.from(popUp.getElementsByClassName('show-success'));
-    OffElements.forEach(element => {
+    const offElements = Array.from(popUp.getElementsByClassName('modal__close'));
+    const successElements = Array.from(popUp.getElementsByClassName('show-success'));
+    offElements.forEach(element => {
         element.onclick = clickHandler;
     });
-    SuccessElements.forEach(element => {
+    successElements.forEach(element => {
         element.onclick = clickHandler;
     });
     popUpOn(popUp);
