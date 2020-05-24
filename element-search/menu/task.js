@@ -3,7 +3,7 @@ function initMenuLinks() {
     const mainMenu = Array.from(document.getElementsByClassName('menu_main'));
     const menuLinks = Array.from(document.getElementsByClassName('menu__link'));
     mainMenu.forEach(element => {
-        element.addEventListener('click', clickHandler, );
+        element.addEventListener('click', clickHandler);
     });
     menuLinks.forEach(element => {
         element.addEventListener('click', clickHandler);
@@ -21,7 +21,6 @@ function clearSubMenu(menuItem) {
 };
 
 function clickHandler(event) {
-    debugger;
     if (event.currentTarget.classList.contains('menu_main')) {
         clearSubMenu(this);
     } else {
@@ -29,11 +28,15 @@ function clickHandler(event) {
         const subMenu = Array.from(event.currentTarget.closest('.menu__item').getElementsByClassName('menu_sub'));
         if (subMenu.length !== 0) {
             event.preventDefault()
-            clearSubMenu(event.currentTarget);
-            subMenu.forEach(element => {
-                element.classList.add('menu_active');
-            });
+            if (subMenu.every(element=> element.classList.contains('menu_active'))) {
+                clearSubMenu(event.currentTarget);
+            } else {
+                clearSubMenu(event.currentTarget);
+                subMenu.forEach(element => {
+                    element.classList.add('menu_active');
+                });
+            };
         };
-    }
-};
+    };
+}
 initMenuLinks()
