@@ -17,7 +17,6 @@ class Game {
   }
 
   registerEvents() {
-    debugger;
     const game = this;
     document.addEventListener('keydown',eventHandler);
     function eventHandler(e){
